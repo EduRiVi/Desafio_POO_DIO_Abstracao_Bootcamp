@@ -1,6 +1,8 @@
 package br.com.dio.desafio.dominio;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -46,8 +48,9 @@ public class Bootcamp {
         return subscribsDevs;
     }
 
-    public void setContents(Set<Content> contents) {
-        this.contents = contents;
+    public void setContents(Content contents) {
+        this.contents.add(new Course(contents));
+            
     }
 
     public Set<Content> getContents() {

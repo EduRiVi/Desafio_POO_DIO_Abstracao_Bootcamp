@@ -1,29 +1,26 @@
 package br.com.dio.desafio.dominio;
 
 public class Course extends Content {
-    private int workload;
+    private boolean isCompleted = false;
 
-    public Course(){}
+    public Course (){}
+
+    public Course (Content content){
+        setTitle(content.getTitle());
+        setDescription(content.getDescription());
+        setLessons(content.getLessons());
+    }
 
     @Override
     public double xpCalculate() {
-        return DEFAULT_XP * workload;
-    }
-
-    public void setWorkload (int workload) {
-        this.workload = workload;
-    }
-
-    public int getWorkload () {
-        return workload;
+        return (isCompleted ? DEFAULT_CONCLUSION_XP : 0) + lessonsXpCalculate();
     }
 
     @Override
     public String toString() {
-        return "Curso{" + 
-                "titulo= '" + getTitle() + '\'' +
-                ", description= '" + getDescription() + '\'' +
-                ", workload= '" + workload +
-                "'}";
+        return "Curso{" + getTitle()
+                        + getDescription()
+                        + getLessons() +
+                        "}";
     }
 }

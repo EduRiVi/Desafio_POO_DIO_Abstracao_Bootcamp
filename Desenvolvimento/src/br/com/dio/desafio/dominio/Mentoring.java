@@ -9,7 +9,7 @@ public class Mentoring extends Content {
 
     @Override
     public double xpCalculate() {
-        return DEFAULT_XP + 20d;
+        return DEFAULT_CONCLUSION_XP + 20d;
     }
 
     public void setDate (LocalDate date) {

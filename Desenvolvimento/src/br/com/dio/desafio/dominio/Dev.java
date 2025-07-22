@@ -17,16 +17,24 @@ public class Dev {
 
     public void progress() {
         Optional<Content> content = subscribeContents.stream().findFirst();
-        if (content.isPresent()) {
-            doneContents.add(content.get());
-            subscribeContents.remove(content.get());
-        } else {
-            System.err.println("Você não está inscrito em nenhum conteúdo!");
-        }
+        if (content.isPresent()){
+            System.out.println(name+" terminou a aula: " + content.get().getCurrentLesson().getTitle());
+            if (!content.get().isCompleted()) content.get().progress();
+            if (content.get().isCompleted()) {
+                doneContents.add(content.get());
+                subscribeContents.remove(content.get());
+                System.out.println(name+" terminou o curso: " + content.get().getTitle());
+            }
+        } else System.err.println("Você não está inscrito em nenhum conteúdo!");
+        
     }
 
     public double xpCalculate() {
-        return doneContents.stream().mapToDouble(Content::xpCalculate).sum();
+        return sumXpContent(doneContents) + sumXpContent(subscribeContents);
+    }
+
+    private double sumXpContent(Set<Content> contents){
+        return contents.stream().mapToDouble(Content::xpCalculate).sum();
     }
 
     public void setName (String name) { this.name = name; }
@@ -64,5 +72,12 @@ public class Dev {
     @Override
     public int hashCode() {
         return Objects.hash(name, subscribeContents, doneContents);
+    }
+
+    @Override
+    public String toString() {
+        return name + ":\n - Conteudos incritos: " + getSubscribeContents() + 
+                        "\n - Conteudos concluídos: " + getDoneContents() +
+                        "\n - XP: " + xpCalculate();
     }
 }
