@@ -6,6 +6,9 @@ import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import br.com.dio.desafio.dominio.Bootcamp;
+import br.com.dio.desafio.dominio.Dev;
+
 public class Bootcamp {
     private String nome;
     private String descricao;

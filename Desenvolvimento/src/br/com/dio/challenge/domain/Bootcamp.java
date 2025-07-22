@@ -1,4 +1,4 @@
-package br.com.dio.desafio.dominio;
+package br.com.dio.challenge.domain;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
+
+import br.com.dio.challenge.domain.Dev;
 
 public class Bootcamp {
     
@@ -56,4 +58,5 @@ public class Bootcamp {
     public Set<Content> getContents() {
         return contents;
     }
+
 }

@@ -1,10 +1,10 @@
 import java.time.LocalDate;
 
-import br.com.dio.desafio.dominio.Bootcamp;
-import br.com.dio.desafio.dominio.Course;
-import br.com.dio.desafio.dominio.Dev;
-import br.com.dio.desafio.dominio.Lesson;
-import br.com.dio.desafio.dominio.Mentoring;
+import br.com.dio.challenge.domain.Bootcamp;
+import br.com.dio.challenge.domain.Course;
+import br.com.dio.challenge.domain.Dev;
+import br.com.dio.challenge.domain.Lesson;
+import br.com.dio.challenge.domain.Mentoring;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -27,12 +27,14 @@ public class Main {
         bootcamp1.setDescription("");
         bootcamp1.setContents(course1);
         bootcamp1.setContents(course1);
+        bootcamp1.setContents(course2);
 
         Bootcamp bootcamp2 = new Bootcamp();
         bootcamp2.setName("Bootcamp java");
         bootcamp2.setDescription("");
+        bootcamp1.setContents(course1);
         bootcamp2.setContents(course1);
-        bootcamp2.setContents(course1);
+        bootcamp2.setContents(course2);
 
         Dev dev1 = new Dev();
         dev1.setName("Eduardo");

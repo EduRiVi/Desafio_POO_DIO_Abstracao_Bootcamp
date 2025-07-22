@@ -2,6 +2,9 @@ package br.com.dio.desafio.dominio;
 
 import java.util.*;
 
+import br.com.dio.desafio.dominio.Bootcamp;
+import br.com.dio.desafio.dominio.Dev;
+
 public class Dev {
     private String nome;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();

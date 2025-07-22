@@ -1,4 +1,6 @@
-package br.com.dio.desafio.dominio;
+package br.com.dio.challenge.domain;
+
+import java.util.Objects;
 
 public class Lesson {
     private double minutes;
@@ -37,6 +39,21 @@ public class Lesson {
 
     public boolean isCompleted(){
         return isCompleted;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Lesson les = (Lesson) obj;        
+        return Objects.equals(minutes, les.minutes) 
+                && Objects.equals(title, les.title)
+                && Objects.equals(xp, les.xp);
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(minutes, title, xp);
     }
 
     @Override

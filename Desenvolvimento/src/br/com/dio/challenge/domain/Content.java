@@ -1,10 +1,11 @@
-package br.com.dio.desafio.dominio;
+package br.com.dio.challenge.domain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.IntFunction;
@@ -69,6 +70,21 @@ public abstract class Content {
             System.err.println("Não há mais aulas para serem completadas nesse curso!");
         else getCurrentLesson().complete();
         
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Content con = (Content) obj;        
+        return Objects.equals(description, con.description) 
+                && Objects.equals(title, con.title)
+                && Objects.equals(lessons, con.lessons);
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(description, title, lessons);
     }
 
 }

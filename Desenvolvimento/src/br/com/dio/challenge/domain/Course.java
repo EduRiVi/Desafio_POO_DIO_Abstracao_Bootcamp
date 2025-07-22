@@ -1,4 +1,4 @@
-package br.com.dio.desafio.dominio;
+package br.com.dio.challenge.domain;
 
 public class Course extends Content {
     private boolean isCompleted = false;
@@ -18,8 +18,8 @@ public class Course extends Content {
 
     @Override
     public String toString() {
-        return "Curso{" + getTitle()
-                        + getDescription()
+        return "Curso{" + getTitle() + ", "
+                        + getDescription() + ", "
                         + getLessons() +
                         "}";
     }
